@@ -79,3 +79,8 @@ async def analisar_sentimento(review: Review):
         "termos_chave": termos_chave,
         "relatorio": relatorio
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Usa a porta do Railway se disponível
+    uvicorn.run(app, host="0.0.0.0", port=port)
