@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 # Carrega sua chave OpenAI
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY").strip()
 print("Chave OpenAI carregada:", openai.api_key)
 
 app = FastAPI()
