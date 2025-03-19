@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from transformers import pipeline
 import openai
 import os
+import uvicorn
 from dotenv import load_dotenv
 
 # Carrega sua chave OpenAI
@@ -81,6 +82,5 @@ async def analisar_sentimento(review: Review):
     }
 
 if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))  # Usa a porta do Railway se disponível
+    port = int(os.environ.get("PORT", 8000))  # Garante que o Railway use a porta correta
     uvicorn.run(app, host="0.0.0.0", port=port)
